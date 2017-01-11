@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <h1>Test Profile, Create And Comment Models and Controllers</h1>
+
+
+    <h2>Profile</h2>
+    <form action= "/api/profile" method="post">
+    <input type="text" name ="username" placeholder="username"><br />
+      <input type="text" name="password" placeholder ="password" /><br />
+      <input type="submit" value="Submit" />
+    </form><br /><br />
+
+
+      <h2>Post</h2>
+    <form action= "/api/post" method="post">
+    <input type="text" name ="image" placeholder="image"><br />
+      <input type="text" name="caption" placeholder ="caption" /><br />
+      <input type="submit" value="Submit" />
+    </form><br /><br />
+
+
+  <h2>Comment</h2>
+    <form action= "/api/comment" method="post">
+    <input type="text" name ="post" placeholder="post"><br />
+      <input type="text" name="text" placeholder ="text" /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
+
+    <script type="text/javascript" src="/build/bundle.js"></script>
+  </body>
+</html>
