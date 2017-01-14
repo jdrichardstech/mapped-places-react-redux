@@ -31926,7 +31926,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
 	var _constants = __webpack_require__(233);
@@ -31939,88 +31939,87 @@
 	
 	exports.default = {
 	
-	  fetchPosts: function fetchPosts(params) {
-	    return function (dispatch) {
-	      _utils.APIManager.get('api/post', params).then(function (response) {
-	        // console.log('Response: ' + JSON.stringify(response))
-	        dispatch({
-	          type: _constants2.default.POSTS_RECEIVED,
-	          posts: response.results
-	        });
-	      }).catch(function (err) {
-	        console.log("Error" + err);
-	      });
-	    };
-	  },
-	  postsReceived: function postsReceived(posts) {
-	    return {
-	      type: _constants2.default.POSTS_RECEIVED,
-	      posts: posts
-	    };
-	  },
+		signup: function signup(params) {
+			return function (dispatch) {
+				_utils.APIManager.post('/account/register', params).then(function (response) {
+					dispatch({
+						type: _constants2.default.CURRENT_USER_RECEIVED,
+						user: response.user
+					});
+				}).catch(function (err) {
+					console.log('ERROR: ' + err);
+				});
+			};
+		},
 	
-	  updateCurrentLocation: function updateCurrentLocation(location) {
-	    return {
-	      type: _constants2.default.CURRENT_LOCATION_CHANGED,
-	      location: location
-	    };
-	  },
+		login: function login(params) {
+			return function (dispatch) {
+				_utils.APIManager.post('/account/login', params).then(function (response) {
+					dispatch({
+						type: _constants2.default.CURRENT_USER_RECEIVED,
+						user: response.user
+					});
+				}).catch(function (err) {
+					alert(err.message);
+				});
+			};
+		},
 	
-	  createPost: function createPost(params) {
-	    return function (dispatch) {
-	      _utils.APIManager.post('api/post', params).then(function (response) {
-	        console.log('Response: ' + JSON.stringify(response));
-	        dispatch({
-	          type: _constants2.default.POST_CREATED,
-	          post: response.result
-	        });
-	      }).catch(function (err) {
-	        console.log("Error" + err);
-	      });
-	    };
-	  },
-	  signup: function signup(params) {
-	    return function (dispatch) {
-	      console.log('hi');
-	      _utils.APIManager.post('account/register', params).then(function (response) {
-	        console.log('Response signup: ' + JSON.stringify(response));
-	        dispatch({
-	          type: _constants2.default.CURRENT_USER_RECEIVED,
-	          user: response.user
-	        });
-	      }).catch(function (err) {
-	        console.log("Error" + err);
-	      });
-	    };
-	  },
+		checkCurrentUser: function checkCurrentUser() {
+			return function (dispatch) {
+				_utils.APIManager.get('/account/currentuser', null).then(function (response) {
+					dispatch({
+						type: _constants2.default.CURRENT_USER_RECEIVED,
+						user: response.user
+					});
+				}).catch(function (err) {
+					console.log('ERROR: ' + err);
+				});
+			};
+		},
 	
-	  login: function login(params) {
-	    return function (dispatch) {
-	      console.log('LOGIN ACTIONS');
-	      _utils.APIManager.post('/account/login', params).then(function (response) {
-	        console.log("RESPONSE.USER: " + JSON.stringify(response.user));
-	        dispatch({
-	          type: _constants2.default.CURRENT_USER_RECEIVED,
-	          user: response.user
-	        });
-	      }).catch(function (err) {
-	        alert("YIKES" + err.message);
-	      });
-	    };
-	  },
-	  checkCurrentUser: function checkCurrentUser() {
-	    return function (dispatch) {
-	      _utils.APIManager.get('account/currentuser', null).then(function (response) {
-	        console.log('Response signup: ' + JSON.stringify(response));
-	        dispatch({
-	          type: _constants2.default.CURRENT_USER_RECEIVED,
-	          user: response.user
-	        });
-	      }).catch(function (err) {
-	        console.log("Error" + err);
-	      });
-	    };
-	  }
+		updateCurrentLocation: function updateCurrentLocation(location) {
+			return {
+				type: _constants2.default.CURRENT_LOCATION_CHANGED,
+				location: location
+			};
+		},
+	
+		createPost: function createPost(params) {
+			return function (dispatch) {
+				_utils.APIManager.post('/api/post', params).then(function (response) {
+					console.log('RESPONSE: ' + JSON.stringify(response));
+	
+					dispatch({
+						type: _constants2.default.POST_CREATED,
+						post: response.result
+					});
+				}).catch(function (err) {
+					console.log('ERROR: ' + err);
+				});
+			};
+		},
+	
+		fetchPosts: function fetchPosts(params) {
+			return function (dispatch) {
+				_utils.APIManager.get('/api/post', params).then(function (response) {
+					console.log('RESPONSE: ' + JSON.stringify(response));
+					dispatch({
+						type: _constants2.default.POSTS_RECEIVED,
+						posts: response.results
+					});
+				}).catch(function (err) {
+					console.log('ERROR: ' + err);
+				});
+			};
+		},
+	
+		postsReceived: function postsReceived(posts) {
+			return {
+				type: _constants2.default.POSTS_RECEIVED,
+				posts: posts
+			};
+		}
 	
 	};
 
