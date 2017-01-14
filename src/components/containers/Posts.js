@@ -30,14 +30,14 @@ componentDidUpdate(){
 
 uploadImage(files){
 	const image = files[0]
-	console.log("Post Container Image file: "+JSON.stringify(image))
+	console.log("COMMENT Container Image file: "+JSON.stringify(image))
 	let timestamp = Date.now()/1000
-	const cloudName= 'huy3rfq6f'
-	const uploadPreset='sayzdkwz'
-	const apiSecret = '5evAmQCPdExJeNhH6ETyoWgzkIU'
-	const paramStr='timestamp='+timestamp+'&upload_preset='+uploadPreset+'5evAmQCPdExJeNhH6ETyoWgzkIU'
+	const cloudName= 'jdrichardstech'
+	const uploadPreset='qfk6kfpf'
+	const apiSecret = 'e8LAFbk1H23PLU02S5Og2DzsMYQ'
+	const paramStr='timestamp='+timestamp+'&upload_preset='+uploadPreset+'e8LAFbk1H23PLU02S5Og2DzsMYQ'
 	const signature=sha1(paramStr)
-	const apiKey = '645932467679167'
+	const apiKey = '854536555581142'
 	const params = {
 		'api_key': apiKey,
 		'timestamp':timestamp,
