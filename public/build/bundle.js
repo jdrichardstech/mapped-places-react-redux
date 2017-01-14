@@ -21908,7 +21908,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
 	var _superagent = __webpack_require__(184);
@@ -21923,88 +21923,66 @@
 	
 	exports.default = {
 	
-	  get: function get(url, params) {
-	    return new _bluebird2.default(function (resolve, reject) {
-	      _superagent2.default.get(url).query(params).set('Accept', 'application/json').end(function (err, response) {
-	        if (err) {
-	          reject(err);
-	          return;
-	        }
-	        if (response.body.confirmation != 'success') {
-	          reject({ message: response.body.message });
-	          return;
-	        }
-	        resolve(response.body);
-	      });
-	    });
-	  },
-	  post: function post(url, params) {
-	    return new _bluebird2.default(function (resolve, reject) {
-	      _superagent2.default.post(url).send(params).set('Accept', 'application/json').end(function (err, response) {
-	        if (err) {
-	          reject(err);
-	          return;
-	        }
+		get: function get(url, params) {
+			return new _bluebird2.default(function (resolve, reject) {
+				_superagent2.default.get(url).query(params).set('Accept', 'application/json').end(function (err, response) {
+					if (err) {
+						reject(err);
+						return;
+					}
 	
-	        if (response.body.confirmation != 'success') {
-	          reject({ message: response.body.message });
-	          return;
-	        }
-	        resolve(response.body);
-	      });
-	    });
-	  },
+					if (response.body.confirmation != 'success') {
+						reject({ message: response.body.message });
+						return;
+					}
 	
-	  put: function put(url, body, callback) {
-	    _superagent2.default.put(url).send(body).set('Accept', 'application/json').end(function (err, response) {
-	      if (err) {
-	        callback(err, null);
-	        return;
-	      }
+					resolve(response.body);
+				});
+			});
+		},
 	
-	      var confirmation = response.body.confirmation;
-	      if (confirmation != 'success') {
-	        callback({ message: response.body.message }, null);
-	        return;
-	      }
+		post: function post(url, params) {
+			return new _bluebird2.default(function (resolve, reject) {
+				_superagent2.default.post(url).send(params).set('Accept', 'application/json').end(function (err, response) {
+					if (err) {
+						reject(err);
+						return;
+					}
 	
-	      callback(null, response.body);
-	    });
-	  },
+					if (response.body.confirmation != 'success') {
+						reject({ message: response.body.message });
+						return;
+					}
 	
-	  delete: function _delete() {},
+					resolve(response.body);
+				});
+			});
+		},
 	
-	  upload: function upload(endpoint, file, params, callback) {
-	    console.log('APIManager - upload: ');
-	    var uploadRequest = _superagent2.default.post(endpoint);
+		uploadFile: function uploadFile(url, file, params) {
+			return new _bluebird2.default(function (resolve, reject) {
 	
-	    uploadRequest.attach('file', file);
-	    Object.keys(params).forEach(function (key) {
-	      uploadRequest.field(key, params[key]);
-	    });
+				var uploadRequest = _superagent2.default.post(url);
+				uploadRequest.attach('file', file);
 	
-	    uploadRequest.end(function (err, response) {
-	      if (err) {
-	        callback(err, null);
-	        return;
-	      }
-	      callback(null, response);
-	    });
-	  }
+				if (params != null) {
+					Object.keys(params).forEach(function (key) {
+						uploadRequest.field(key, params[key]);
+					});
+				}
 	
-	  // uploadFile: (url, file, params) => {
-	  //   return new Promise((resolve reject)=>{
-	  //     let uploadRequest = superagent.post(endpoint)
-	  //     uploadRequest.attach('file', file)
-	  //     if(params !=null){
-	  //       Object.keys(params).forEach((key)=>{
-	  //         uploadRequest.field(key, params[key])
-	  //       })
-	  //     }
-	  //   })
-	  // }
+				uploadRequest.end(function (err, resp) {
+					if (err) {
+						reject(err);
+						return;
+					}
 	
-	
+					var uploaded = resp.body;
+					console.log('UPLOAD COMPLETE: ' + JSON.stringify(uploaded));
+					resolve(uploaded);
+				});
+			});
+		}
 	};
 
 /***/ },
@@ -37421,7 +37399,7 @@
 	          _react2.default.createElement(
 	            "span",
 	            { className: "copyright" },
-	            "\xA9 Untitled. All Rights Reserved."
+	            "\xA92017s JDRichardsTech. All Rights Reserved."
 	          )
 	        )
 	      );

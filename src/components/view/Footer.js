@@ -14,7 +14,7 @@ class Footer extends Component{
               <li><a href="#" className="icon fa-tumblr"><span className="label">Tumblr</span></a></li>
               <li><a href="#" className="icon fa-dribbble"><span className="label">Dribbble</span></a></li>
             </ul>
-            <span className="copyright">&copy; Untitled. All Rights Reserved.</span>
+            <span className="copyright">&copy;2017s JDRichardsTech. All Rights Reserved.</span>
           </div>
 
       </div>
