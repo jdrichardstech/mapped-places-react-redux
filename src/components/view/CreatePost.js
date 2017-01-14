@@ -57,13 +57,21 @@ class CreatePost extends Component {
       <br />
 
       <form >
-        <center>
-      <label>Caption:</label>
-      <input style={{width:250}} onChange={this.updatePost.bind(this)} type="text" id="caption"  /></center><br /><br />
-          <DropZone  onDrop={this.grabImage.bind(this)} >
-                 <div style={{width:150, height:150, border:'1px groove #E6E7F5',borderRadius:5, margin:'25px auto',padding:30}}><center><a href="#" style={{fontSize:'1em', paddingTop:0}}>Click here <br /> or drag image into this box</a></center></div>
-           </DropZone><br />
-      <button className="btn btn-primary" onClick={this.submitPost.bind(this)}>Submit</button>
+
+
+    <p>
+       <label>Caption:</label><input className="form-control" style={{width:'40%' }} onChange={this.updatePost.bind(this)} type="text" id="caption"  />
+    </p>
+    <center>
+      <DropZone style={{border:'none',marginTop:15}}  onDrop={this.grabImage.bind(this)} >
+          <button style={{marginBottom:20,width:'30%'}} className='form-control'>Upload Image</button>
+         </DropZone>
+     <button style={{ width:'30%'}} className="form-control"  onClick={this.submitPost.bind(this)}>Submit</button>
+
+
+    </center>
+
+
 
       </form>
 

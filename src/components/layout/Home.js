@@ -1,34 +1,81 @@
 import React, { Component } from 'react'
 import { Posts, MapNavigation, Account } from '../containers'
-import {Sidebar , Footer} from '../view'
+import {Header , Footer, Sidebar} from '../view'
 
 
 
 class Home extends Component{
   render(){
     return(
-      <div>
-        <div className="jumbotron" style={{backGroundColor:'BlueSteel'}}><h1>Google Places</h1></div>
-        <header id="header" style={{padding:0 }}>
-          <div className="">
-              <MapNavigation />
-          </div>
-        </header>
-          <div id="main" style={{padding:'4em'}}>
-            <section id="one">
-              <div className="row">
-                		<div className="8u 12u$(xsmall)">
-                        <Posts />
-                    </div>
-                    <div className="4u 12u$(xsmall)">
-                      <Account />
-                    </div>
+
+        <div id="page-wrapper">
+
+          <Header />
+          {/*banner*/}
+            <div id="banner-wrapper">
+              <div className="container">
+                <div className="row">
+                  <div className="12u">
+
+
+                      <div id="banner">
+                        <p><span>Lorem ipsum dolor sit amet</span> magna consectetur nulla adipiscing sed donec id dolor urna. Donec bibendum eros ut eros tincidunt veroeros et amet pharetra tortor vulputate.</p>
+                      </div>
+
+                  </div>
+                </div>
               </div>
+            </div>
+            {/*END BANNER*/}
 
-            </section>
-          </div>
+            {/*BEGIN MAIN WRAPPER */}
 
+            <div id="main-wrapper">
+              <div className="container">
+                <div className="row">
+                  <div className="9u 12u(mobile)" id="content">
+                      <article className="box section featured-post" id=" ">
+                        <div className="full-image">
+                          <MapNavigation />
+                        </div>
+                        <div className="content">
+                          <div className="row">
+                            <div className="12u 12u(mobile)">
+
+                              <Posts />
+
+                            </div>
+
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                    <div className="3u 12u(mobile)" id="sidebar">
+
+
+                                    <section className="box default special1">
+
+                                      <div className="content">
+                                      <Account />
+                                      </div>
+
+                                    </section>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+
+            {/*}  <MapNavigation />
+
+                        <Posts />
+
+                      <Account />
+*/}
+
+          <Footer />
       </div>
+
 
     )
   }

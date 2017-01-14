@@ -56,7 +56,7 @@
 	
 	var _layout = __webpack_require__(178);
 	
-	var _store = __webpack_require__(296);
+	var _store = __webpack_require__(297);
 	
 	var _store2 = _interopRequireDefault(_store);
 	
@@ -21550,47 +21550,90 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { id: 'page-wrapper' },
+	        _react2.default.createElement(_view.Header, null),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'jumbotron', style: { backGroundColor: 'BlueSteel' } },
-	          _react2.default.createElement(
-	            'h1',
-	            null,
-	            'Google Places'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'header',
-	          { id: 'header', style: { padding: 0 } },
+	          { id: 'banner-wrapper' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: '' },
-	            _react2.default.createElement(_containers.MapNavigation, null)
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { id: 'main', style: { padding: '4em' } },
-	          _react2.default.createElement(
-	            'section',
-	            { id: 'one' },
+	            { className: 'container' },
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'row' },
 	              _react2.default.createElement(
 	                'div',
-	                { className: '8u 12u$(xsmall)' },
-	                _react2.default.createElement(_containers.Posts, null)
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: '4u 12u$(xsmall)' },
-	                _react2.default.createElement(_containers.Account, null)
+	                { className: '12u' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { id: 'banner' },
+	                  _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    _react2.default.createElement(
+	                      'span',
+	                      null,
+	                      'Lorem ipsum dolor sit amet'
+	                    ),
+	                    ' magna consectetur nulla adipiscing sed donec id dolor urna. Donec bibendum eros ut eros tincidunt veroeros et amet pharetra tortor vulputate.'
+	                  )
+	                )
 	              )
 	            )
 	          )
-	        )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { id: 'main-wrapper' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'row' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: '9u 12u(mobile)', id: 'content' },
+	                _react2.default.createElement(
+	                  'article',
+	                  { className: 'box section featured-post', id: ' ' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'full-image' },
+	                    _react2.default.createElement(_containers.MapNavigation, null)
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'content' },
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'row' },
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: '12u 12u(mobile)' },
+	                        _react2.default.createElement(_containers.Posts, null)
+	                      )
+	                    )
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: '3u 12u(mobile)', id: 'sidebar' },
+	                _react2.default.createElement(
+	                  'section',
+	                  { className: 'box default special1' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'content' },
+	                    _react2.default.createElement(_containers.Account, null)
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(_view.Footer, null)
 	      );
 	    }
 	  }]);
@@ -21615,11 +21658,11 @@
 	
 	var _Posts2 = _interopRequireDefault(_Posts);
 	
-	var _MapNavigation = __webpack_require__(294);
+	var _MapNavigation = __webpack_require__(295);
 	
 	var _MapNavigation2 = _interopRequireDefault(_MapNavigation);
 	
-	var _Account = __webpack_require__(295);
+	var _Account = __webpack_require__(296);
 	
 	var _Account2 = _interopRequireDefault(_Account);
 	
@@ -21655,7 +21698,7 @@
 	
 	var _view = __webpack_require__(234);
 	
-	var _sha = __webpack_require__(287);
+	var _sha = __webpack_require__(288);
 	
 	var _sha2 = _interopRequireDefault(_sha);
 	
@@ -21776,7 +21819,7 @@
 	          null,
 	          _react2.default.createElement(
 	            'h2',
-	            null,
+	            { id: 'content' },
 	            'Create Posts'
 	          ),
 	          _react2.default.createElement(_view.CreatePost, { handleImage: this.uploadImage.bind(this), onCreate: this.submitPost.bind(this) }),
@@ -21786,7 +21829,7 @@
 	            'Posts'
 	          ),
 	          _react2.default.createElement(
-	            'ol',
+	            'ul',
 	            null,
 	            list == null ? null : list.map(function (post, i) {
 	              return _react2.default.createElement(
@@ -32029,7 +32072,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Footer = exports.Sidebar = exports.Register = exports.Map = exports.CreatePost = undefined;
+	exports.Sidebar = exports.Footer = exports.Header = exports.Register = exports.Map = exports.CreatePost = undefined;
 	
 	var _CreatePost = __webpack_require__(235);
 	
@@ -32043,21 +32086,26 @@
 	
 	var _Register2 = _interopRequireDefault(_Register);
 	
-	var _Sidebar = __webpack_require__(285);
+	var _Header = __webpack_require__(285);
 	
-	var _Sidebar2 = _interopRequireDefault(_Sidebar);
+	var _Header2 = _interopRequireDefault(_Header);
 	
 	var _Footer = __webpack_require__(286);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
+	
+	var _Sidebar = __webpack_require__(287);
+	
+	var _Sidebar2 = _interopRequireDefault(_Sidebar);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.CreatePost = _CreatePost2.default;
 	exports.Map = _Map2.default;
 	exports.Register = _Register2.default;
-	exports.Sidebar = _Sidebar2.default;
+	exports.Header = _Header2.default;
 	exports.Footer = _Footer2.default;
+	exports.Sidebar = _Sidebar2.default;
 
 /***/ },
 /* 235 */
@@ -32153,41 +32201,32 @@
 	          'form',
 	          null,
 	          _react2.default.createElement(
-	            'center',
+	            'p',
 	            null,
 	            _react2.default.createElement(
 	              'label',
 	              null,
 	              'Caption:'
 	            ),
-	            _react2.default.createElement('input', { style: { width: 250 }, onChange: this.updatePost.bind(this), type: 'text', id: 'caption' })
+	            _react2.default.createElement('input', { className: 'form-control', style: { width: '40%' }, onChange: this.updatePost.bind(this), type: 'text', id: 'caption' })
 	          ),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
-	            _reactDropzone2.default,
-	            { onDrop: this.grabImage.bind(this) },
+	            'center',
+	            null,
 	            _react2.default.createElement(
-	              'div',
-	              { style: { width: 150, height: 150, border: '1px groove #E6E7F5', borderRadius: 5, margin: '25px auto', padding: 30 } },
+	              _reactDropzone2.default,
+	              { style: { border: 'none', marginTop: 15 }, onDrop: this.grabImage.bind(this) },
 	              _react2.default.createElement(
-	                'center',
-	                null,
-	                _react2.default.createElement(
-	                  'a',
-	                  { href: '#', style: { fontSize: '1em', paddingTop: 0 } },
-	                  'Click here ',
-	                  _react2.default.createElement('br', null),
-	                  ' or drag image into this box'
-	                )
+	                'button',
+	                { style: { marginBottom: 20, width: '30%' }, className: 'form-control' },
+	                'Upload Image'
 	              )
+	            ),
+	            _react2.default.createElement(
+	              'button',
+	              { style: { width: '30%' }, className: 'form-control', onClick: this.submitPost.bind(this) },
+	              'Submit'
 	            )
-	          ),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'btn btn-primary', onClick: this.submitPost.bind(this) },
-	            'Submit'
 	          )
 	        ),
 	        _react2.default.createElement('hr', null)
@@ -32752,7 +32791,7 @@
 	        value: function render() {
 	            var _this2 = this;
 	
-	            var mapContainer = _react2.default.createElement('div', { style: { minHeight: 800, height: '100%', width: '100%' } });
+	            var mapContainer = _react2.default.createElement('div', { style: { minHeight: 400, height: '50%', width: '100%' } });
 	
 	            return _react2.default.createElement(_reactGoogleMaps.GoogleMapLoader, {
 	                containerElement: mapContainer,
@@ -37144,28 +37183,40 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'Register',
 	        _react2.default.createElement(
 	          'h2',
 	          null,
-	          'Sign up'
+	          'Sign up OR Login'
 	        ),
 	        _react2.default.createElement(
 	          'form',
-	          null,
-	          _react2.default.createElement('input', { onChange: this.updateRegistration.bind(this), type: 'text', placeholder: 'username', id: 'username' }),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement('input', { onChange: this.updateRegistration.bind(this), type: 'password', placeholder: 'password', id: 'password' }),
-	          _react2.default.createElement('br', null),
+	          { className: 'form-group' },
+	          _react2.default.createElement(
+	            'label',
+	            { style: { marginBottom: 10 } },
+	            'Username:'
+	          ),
+	          _react2.default.createElement('input', { style: { marginBottom: 20 }, className: 'form-control', onChange: this.updateRegistration.bind(this), type: 'text', placeholder: 'username', id: 'username' }),
+	          _react2.default.createElement(
+	            'label',
+	            { style: { marginBottom: 10 } },
+	            'Password:'
+	          ),
+	          _react2.default.createElement('input', { style: { marginBottom: 20 }, className: 'form-control', onChange: this.updateRegistration.bind(this), type: 'password', placeholder: 'password', id: 'password' }),
 	          _react2.default.createElement(
 	            'button',
-	            { onClick: this.submitRegistration.bind(this) },
+	            { className: 'btn btn-default', onClick: this.submitRegistration.bind(this) },
 	            'Submit'
 	          ),
-	          _react2.default.createElement('br', null),
+	          ' ',
+	          _react2.default.createElement(
+	            'span',
+	            { style: { paddingRight: 5 } },
+	            'OR'
+	          ),
 	          _react2.default.createElement(
 	            'button',
-	            { onClick: this.submitLoginCredentials.bind(this) },
+	            { className: 'btn btn-default', onClick: this.submitLoginCredentials.bind(this) },
 	            'Login'
 	          )
 	        )
@@ -37182,7 +37233,7 @@
 /* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -37202,26 +37253,59 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Sidebar = function (_Component) {
-	  _inherits(Sidebar, _Component);
+	var Header = function (_Component) {
+	  _inherits(Header, _Component);
 	
-	  function Sidebar() {
-	    _classCallCheck(this, Sidebar);
+	  function Header() {
+	    _classCallCheck(this, Header);
 	
-	    return _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
 	  }
 	
-	  _createClass(Sidebar, [{
-	    key: 'render',
+	  _createClass(Header, [{
+	    key: "render",
 	    value: function render() {
-	      return _react2.default.createElement('div', null);
+	      return _react2.default.createElement(
+	        "div",
+	        { id: "header-wrapper" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "container" },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "row" },
+	            _react2.default.createElement(
+	              "div",
+	              { className: "12u" },
+	              _react2.default.createElement(
+	                "header",
+	                { id: "header" },
+	                _react2.default.createElement(
+	                  "h1",
+	                  null,
+	                  _react2.default.createElement(
+	                    "a",
+	                    { href: "index.html", id: "logo" },
+	                    "Mapped Places"
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  "p",
+	                  null,
+	                  "by JDRichardsTech"
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
 	    }
 	  }]);
 	
-	  return Sidebar;
+	  return Header;
 	}(_react.Component);
 	
-	exports.default = Sidebar;
+	exports.default = Header;
 
 /***/ },
 /* 286 */
@@ -37260,11 +37344,11 @@
 	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "footer",
-	        { id: "footer" },
+	        "div",
+	        { id: "footer-wrapper" },
 	        _react2.default.createElement(
 	          "div",
-	          { className: "inner" },
+	          { id: "footer", className: "container" },
 	          _react2.default.createElement(
 	            "ul",
 	            { className: "icons" },
@@ -37286,11 +37370,37 @@
 	              null,
 	              _react2.default.createElement(
 	                "a",
-	                { href: "#", className: "icon fa-github" },
+	                { href: "#", className: "icon fa-facebook" },
 	                _react2.default.createElement(
 	                  "span",
 	                  { className: "label" },
-	                  "Github"
+	                  "Facebook"
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              "li",
+	              null,
+	              _react2.default.createElement(
+	                "a",
+	                { href: "#", className: "icon fa-instagram" },
+	                _react2.default.createElement(
+	                  "span",
+	                  { className: "label" },
+	                  "Instagram"
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              "li",
+	              null,
+	              _react2.default.createElement(
+	                "a",
+	                { href: "#", className: "icon fa-tumblr" },
+	                _react2.default.createElement(
+	                  "span",
+	                  { className: "label" },
+	                  "Tumblr"
 	                )
 	              )
 	            ),
@@ -37306,39 +37416,12 @@
 	                  "Dribbble"
 	                )
 	              )
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#", className: "icon fa-envelope-o" },
-	                _react2.default.createElement(
-	                  "span",
-	                  { className: "label" },
-	                  "Email"
-	                )
-	              )
 	            )
 	          ),
 	          _react2.default.createElement(
-	            "ul",
+	            "span",
 	            { className: "copyright" },
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "\xA9 Untitled"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Design: ",
-	              _react2.default.createElement(
-	                "a",
-	                { href: "http://html5up.net" },
-	                "HTML5 UP"
-	              )
-	            )
+	            "\xA9 Untitled. All Rights Reserved."
 	          )
 	        )
 	      );
@@ -37354,10 +37437,68 @@
 /* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Sidebar = function (_Component) {
+	  _inherits(Sidebar, _Component);
+	
+	  function Sidebar() {
+	    _classCallCheck(this, Sidebar);
+	
+	    return _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).apply(this, arguments));
+	  }
+	
+	  _createClass(Sidebar, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        this.props.currentUser == null ? _react2.default.createElement(Register, { onLogin: this.login.bind(this), onRegister: this.register.bind(this) }) : _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Welcome ',
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            currentUser.username.toUpperCase()
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Sidebar;
+	}(_react.Component);
+	
+	exports.default = Sidebar;
+
+/***/ },
+/* 288 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(Buffer) {(function() {
-	  var crypt = __webpack_require__(292),
-	      utf8 = __webpack_require__(293).utf8,
-	      bin = __webpack_require__(293).bin,
+	  var crypt = __webpack_require__(293),
+	      utf8 = __webpack_require__(294).utf8,
+	      bin = __webpack_require__(294).bin,
 	
 	  // The core
 	  sha1 = function (message) {
@@ -37437,10 +37578,10 @@
 	  module.exports = api;
 	})();
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(288).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(289).Buffer))
 
 /***/ },
-/* 288 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -37453,9 +37594,9 @@
 	
 	'use strict'
 	
-	var base64 = __webpack_require__(289)
-	var ieee754 = __webpack_require__(290)
-	var isArray = __webpack_require__(291)
+	var base64 = __webpack_require__(290)
+	var ieee754 = __webpack_require__(291)
+	var isArray = __webpack_require__(292)
 	
 	exports.Buffer = Buffer
 	exports.SlowBuffer = SlowBuffer
@@ -39236,7 +39377,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 289 */
+/* 290 */
 /***/ function(module, exports) {
 
 	'use strict'
@@ -39356,7 +39497,7 @@
 
 
 /***/ },
-/* 290 */
+/* 291 */
 /***/ function(module, exports) {
 
 	exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -39446,7 +39587,7 @@
 
 
 /***/ },
-/* 291 */
+/* 292 */
 /***/ function(module, exports) {
 
 	var toString = {}.toString;
@@ -39457,7 +39598,7 @@
 
 
 /***/ },
-/* 292 */
+/* 293 */
 /***/ function(module, exports) {
 
 	(function() {
@@ -39559,7 +39700,7 @@
 
 
 /***/ },
-/* 293 */
+/* 294 */
 /***/ function(module, exports) {
 
 	var charenc = {
@@ -39598,7 +39739,7 @@
 
 
 /***/ },
-/* 294 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39682,7 +39823,7 @@
 	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(MapNavigation);
 
 /***/ },
-/* 295 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39790,7 +39931,7 @@
 	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Account);
 
 /***/ },
-/* 296 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39801,11 +39942,11 @@
 	
 	var _redux = __webpack_require__(205);
 	
-	var _reduxThunk = __webpack_require__(297);
+	var _reduxThunk = __webpack_require__(298);
 	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 	
-	var _reducers = __webpack_require__(298);
+	var _reducers = __webpack_require__(299);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -39829,7 +39970,7 @@
 	};
 
 /***/ },
-/* 297 */
+/* 298 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -39857,7 +39998,7 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 298 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39867,11 +40008,11 @@
 	});
 	exports.accountReducer = exports.postReducer = undefined;
 	
-	var _postReducer = __webpack_require__(299);
+	var _postReducer = __webpack_require__(300);
 	
 	var _postReducer2 = _interopRequireDefault(_postReducer);
 	
-	var _accountReducer = __webpack_require__(300);
+	var _accountReducer = __webpack_require__(301);
 	
 	var _accountReducer2 = _interopRequireDefault(_accountReducer);
 	
@@ -39881,7 +40022,7 @@
 	exports.accountReducer = _accountReducer2.default;
 
 /***/ },
-/* 299 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39944,7 +40085,7 @@
 	};
 
 /***/ },
-/* 300 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39976,7 +40117,7 @@
 				return updated;
 	
 			default:
-				return updated;
+				return state;
 	
 		}
 	};

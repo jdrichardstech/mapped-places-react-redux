@@ -104,22 +104,21 @@ submitPost(post){
     return(
       <div>
       <center>
-      <h2>Create Posts</h2>
+      <h2 id="content">Create Posts</h2>
         <CreatePost handleImage={this.uploadImage.bind(this)} onCreate={this.submitPost.bind(this)}/>
         <h2>Posts</h2>
-        <ol>
+        <ul>
           {(list==null) ? null:
               list.map((post, i)=>{
               return(
                 <li  key={post.id}>
-
-                <span>  <img src={post.image} /><br /> </span>Caption:{post.caption} <br />Coords:{post.geo} <hr />
+                  <span>  <img src={post.image} /><br /> </span>Caption:{post.caption} <br />Coords:{post.geo} <hr />
                 </li>
                 )
-          })
-        }
+              })
+          }
 
-          </ol></center>
+        </ul></center>
 
       </div>
     )

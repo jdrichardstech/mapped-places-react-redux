@@ -52,13 +52,15 @@ class Register extends Component{
     return(
 
         <div>
-        Register
-         <h2>Sign up</h2>
-         <form>
-          <input  onChange={this.updateRegistration.bind(this)} type="text" placeholder="username" id="username" /><br />
-          <input  onChange={this.updateRegistration.bind(this)} type="password" placeholder="password" id="password" /><br />
-          <button  onClick={this.submitRegistration.bind(this)}>Submit</button><br />
-          <button  onClick={this.submitLoginCredentials.bind(this)}>Login</button>
+
+         <h2>Sign up OR Login</h2>
+         <form className="form-group">
+           <label style={{marginBottom:10}}>Username:</label>
+          <input style={{marginBottom:20}} className="form-control"  onChange={this.updateRegistration.bind(this)} type="text" placeholder="username" id="username" />
+          <label style={{marginBottom:10}}>Password:</label>
+        <input style={{marginBottom:20}} className="form-control"   onChange={this.updateRegistration.bind(this)} type="password" placeholder="password" id="password" />
+          <button className="btn btn-default"  onClick={this.submitRegistration.bind(this)}>Submit</button> <span style={{paddingRight:5}}>OR</span>
+          <button  className="btn btn-default" onClick={this.submitLoginCredentials.bind(this)}>Login</button>
         </form>
 
 

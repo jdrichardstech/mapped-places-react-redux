@@ -22,8 +22,8 @@ class Map extends Component{
 
     render(){
 
-        const mapContainer = <div style={{minHeight:800, height:'100%', width:'100%'}}></div>
-       
+        const mapContainer = <div style={{minHeight:400, height:'50%', width:'100%'}}></div>
+
 
 
         return(
@@ -35,10 +35,10 @@ class Map extends Component{
                         if(this.state.map!=null)
                         return
                         this.setState({map:map})
-                        
+
                     }
                 }
-                
+
                 defaultZoom={this.props.zoom}
                 defaultCenter = {this.props.center}
                 onDragend={this.mapDragged.bind(this)}

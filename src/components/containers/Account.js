@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Register} from '../view'
+import {Register, Sidebar} from '../view'
 import { connect } from 'react-redux'
 import actions from '../../actions'
 
@@ -31,6 +31,7 @@ login(credentials){
 
       return(
         <div>
+          
       { (currentUser==null) ?  <Register onLogin={this.login.bind(this)} onRegister={this.register.bind(this)} /> : <h3>Welcome <span>{currentUser.username.toUpperCase()}</span></h3>}
 
         </div>

@@ -1,8 +1,9 @@
 import CreatePost from './CreatePost'
 import Map from './Map'
 import Register from './Register'
-import Sidebar from './Sidebar'
+import Header from './Header'
 import Footer from './Footer'
+import Sidebar from './Sidebar'
 
 
 
@@ -11,6 +12,7 @@ export{
   CreatePost,
   Map,
   Register,
-  Sidebar,
-  Footer
+  Header,
+  Footer,
+  Sidebar
 }

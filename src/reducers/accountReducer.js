@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
 			return updated
 
 		default:
-			return updated
+			return state
 
 	}
 }
