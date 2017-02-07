@@ -26,7 +26,7 @@ gulp.task('css', function(){
 gulp.task('build', function(){
     return gulp.src(
 
-  
+
     		[
 				'./public/assets/js/jquery.min.js',
 				'./public/assets/js/jquery.dropotron.min.js',
@@ -44,4 +44,11 @@ gulp.task('build', function(){
         .pipe(gulp.dest('./public/build/'));
 })
 
-gulp.task('default', ['css', 'build'], function(){})
+gulp.task('copy', function(){
+    return gulp.src(
+            ['./public/assets/fonts/**']
+        )
+        .pipe(gulp.dest('./public/build/fonts/'))
+})
+
+gulp.task('default', ['css', 'build','copy'], function(){})

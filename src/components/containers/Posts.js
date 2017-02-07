@@ -18,6 +18,7 @@ constructor(){
   componentDidMount(){
     const currentLocation = this.props.posts.currentLocation
     this.props.fetchPosts(currentLocation)
+
   }
 
 componentDidUpdate(){
@@ -25,48 +26,13 @@ componentDidUpdate(){
     const currentLocation = this.props.posts.currentLocation
     this.props.fetchPosts(currentLocation)
   }
-  // console.log('componentDidUpdate: ')
+  console.log("POSTS: " +JSON.stringify(this.props.posts))
+  console.log("ACCOUNT: " + JSON.stringify(this.props.account))
 }
 
-uploadImage(files){
-	const image = files[0]
-	console.log("COMMENT Container Image file: "+JSON.stringify(image))
-	let timestamp = Date.now()/1000
-	const cloudName= 'jdrichardstech'
-	const uploadPreset='qfk6kfpf'
-	const apiSecret = 'e8LAFbk1H23PLU02S5Og2DzsMYQ'
-	const paramStr='timestamp='+timestamp+'&upload_preset='+uploadPreset+'e8LAFbk1H23PLU02S5Og2DzsMYQ'
-	const signature=sha1(paramStr)
-	const apiKey = '854536555581142'
-	const params = {
-		'api_key': apiKey,
-		'timestamp':timestamp,
-		'upload_preset':uploadPreset,
-		'signature': signature
-	}
-	const url = 'https://api.cloudinary.com/v1_1/'+cloudName+'/image/upload'
 
-	APIManager.upload(url, image,params,(err, response)=>{
-		if(err){
-			console.log('Upload err: ' + err.message)
-			return
-		}
-		console.log('Uploaded image: ' + JSON.stringify(response.body))
-		const imageUrl = response.body['secure_url']
-
-		let updated = Object.assign({}, this.state.updated)
-		updated['image'] = response.body['secure_url']
-		this.setState({
-			updated: updated
-		})
-		console.log("UPDATED POST:" + JSON.stringify(this.state.updated))
-})
-}
 
 submitPost(post){
-
-
-
   const user = this.props.account.user
 
   if(user==null){
@@ -81,44 +47,64 @@ submitPost(post){
     currentLocation.lng
   ]
 
-
-
   post['profile']={
     id:user.id,
     username: user.username
   }
-  post['image'] = this.state.updated.image
 
-  console.log('submitPost: '+ JSON.stringify(post))
+
+  // post['image'] = this.state.updated.image
+
+  // console.log('submitPost: '+ JSON.stringify(post))
   this.props.createPost(post)
 }
 
   render(){
-    const list=this.props.posts.list
-    // const list = this.props.posts.list.map((post, i)=>{
-    //   return(
-    //     <li key={post.id}>{post.caption}</li>
-    //   )
-    // })
+    const list=this.props.posts.list //can be null
 
     return(
       <div>
-      <center>
-      <h2 id="content">Create Posts</h2>
-        <CreatePost handleImage={this.uploadImage.bind(this)} onCreate={this.submitPost.bind(this)}/>
-        <h2>Posts</h2>
-        <ul>
-          {(list==null) ? null:
-              list.map((post, i)=>{
-              return(
-                <li  key={post.id}>
-                  <span>  <img src={post.image} /><br /> </span>Caption:{post.caption} <br />Coords:{post.geo} <hr />
-                </li>
-                )
-              })
-          }
+        <div className="box default special1 12u" style={{padding:20,marginBottom:0}}>
+            <h2 style={{fontSize:'2em', color:'#fff', marginBottom:20, paddingBottom:20}}><strong>Create Post:</strong></h2>
+            <hr />
+          <CreatePost onCreate={this.submitPost.bind(this)}/>
+        </div>
 
-        </ul></center>
+
+
+                        <div id="banner-wrapper" style={{marginTop:60}}>
+                          <div className="container">
+                            <div className="row" style={{paddingLeft:0}}>
+                              <div className="12u" style={{paddingLeft:0}}>
+                                  <div id="banner" style={{marginLeft:0, paddingLeft:0}}>
+                                      <p style={{fontSize:'2.5em',color:'#22B6ED'}}>Posts on the Map
+                                      </p>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+            <ul>
+                {(list==null) ? null:
+                    list.map((post, i)=>{
+                    return(
+                      <li key={i} className="3u 12u(mobile) box" style={{float:'left',marginRight:20,marginBottom:20,border:'2px solid #22B6ED',background:'#22B6ED'}}>
+
+                            <article className=" section">
+                              <a href="#" className="image full"><img  src={post.image} alt="" /></a>
+                              <div style={{padding:10}} className="content">
+                                <p style={{color:'#fff', paddingTop:10, paddingBottom:10, borderBottom:'1px dotted #fff', fontSize:'1.5em',fontFamily:'Open Sans, sans-serif', lineHeight:'1em'}}>{post.caption}</p>
+
+                                <p style={{color:'#fff',fontSize:'1em',fontFamily:'Open Sans, sans-serif'}}>Posted by: <span style={{fontFamily:'Oleo Script, cursive', fontSize:'1.5em',color:'#FF4E00'}}>{post.profile.username}</span></p>
+                              </div>
+                            </article>
+
+                      </li>
+                      )
+                    })
+                }
+            </ul>
+
 
       </div>
     )

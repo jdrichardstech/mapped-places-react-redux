@@ -6,34 +6,38 @@ import actions from '../../actions'
 
 
 class Account extends Component{
-constructor(){
-  super()
-  this.state={
 
+
+  componentDidMount(){
+    this.props.checkCurrentUser()
   }
-}
 
-componentDidMount(){
-  this.props.checkCurrentUser()
-}
+  register(registration){
 
-register(registration){
-  console.log('Register container: '+ JSON.stringify(registration))
-   this.props.signup(registration)
-}
+    // console.log('Register container: '+ JSON.stringify(registration))
+    this.props.signup(registration)
+  }
 
-login(credentials){
-  console.log("LOGIN:  " + JSON.stringify(credentials))
-  this.props.login(credentials)
-}
+  login(credentials){
+    console.log("LOGIN:  " + JSON.stringify(credentials))
+    this.props.login(credentials)
+  }
+
   render(){
      const currentUser= this.props.account.user
+     const content = (currentUser==null) ?
+         <div>
+           <Register onLogin={this.login.bind(this)} onRegister={this.register.bind(this)} />
+         </div>
+         :
+         <div>
+           <h1 style={{fontSize:'2em', fontFamily:'Oleo Script,cursive'}}>Welcome <span>{currentUser.username.toUpperCase()}</span></h1>
+           <p><a href="#" className="button">Logout</a></p>
+         </div>
 
       return(
         <div>
-          
-      { (currentUser==null) ?  <Register onLogin={this.login.bind(this)} onRegister={this.register.bind(this)} /> : <h3>Welcome <span>{currentUser.username.toUpperCase()}</span></h3>}
-
+          {content}
         </div>
       )
   }

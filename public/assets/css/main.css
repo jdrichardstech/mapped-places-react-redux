@@ -1284,7 +1284,7 @@
 
 			.box.section h2 {
 				padding: 0 0 1em 0;
-				border-bottom: dotted 2px #e5e5e5;
+				/*border-bottom: dotted 2px #e5e5e5;*/
 				letter-spacing: -.05em;
 				font-size: 2.2em;
 				font-weight: 200;
@@ -1346,7 +1346,7 @@
 	#content h2 {
 		margin: 0 0 1em 0;
 		padding: 0 0 1em 0;
-		border-bottom: dotted 2px #e5e5e5;
+		/*border-bottom: dotted 2px #e5e5e5;*/
 		letter-spacing: -0.05em;
 		font-size: 2.2em;
 		font-weight: 200;
