@@ -39515,14 +39515,14 @@
 	          { className: 'form-group' },
 	          _react2.default.createElement(
 	            'label',
-	            { style: { marginBottom: 10 } },
-	            'Username:'
+	            { style: { marginBottom: 10, paddingRight: 5 } },
+	            'Username: '
 	          ),
 	          _react2.default.createElement('input', { style: { marginBottom: 20, border: 'none', color: 'black' }, className: '', onChange: this.updateRegistration.bind(this), type: 'text', id: 'username' }),
 	          _react2.default.createElement(
 	            'label',
-	            { style: { marginBottom: 10 } },
-	            'Password:'
+	            { style: { marginBottom: 10, paddingRight: 5 } },
+	            'Password: '
 	          ),
 	          _react2.default.createElement('input', { style: { marginBottom: 20, border: 'none', color: 'black' }, className: '', onChange: this.updateRegistration.bind(this), type: 'password', id: 'password' }),
 	          _react2.default.createElement(
