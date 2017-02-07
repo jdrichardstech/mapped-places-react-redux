@@ -55,9 +55,9 @@ class Register extends Component{
 
          <h2>Sign up OR Login</h2>
            <form className="form-group">
-             <label style={{marginBottom:10,paddingRight:5}}>Username: </label>
+             <label style={{marginBottom:10,paddingRight:2}}>Username: </label>
             <input style={{marginBottom:20, border:'none',color:'black'}} className=""  onChange={this.updateRegistration.bind(this)} type="text"  id="username" />
-            <label style={{marginBottom:10,paddingRight:5}}>Password: </label>
+            <label style={{marginBottom:10,paddingRight:2}}>Password: </label>
           <input style={{marginBottom:20,border:'none',color:'black'}} className=""   onChange={this.updateRegistration.bind(this)} type="password"  id="password" />
             <button className="button" onClick={this.submitRegistration.bind(this)}>Submit</button> <span style={{paddingRight:5 }}> OR </span>
             <button  className="button" onClick={this.submitLoginCredentials.bind(this)}>Login</button>
