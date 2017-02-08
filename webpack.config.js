@@ -9,19 +9,19 @@ module.exports = {
 		filename: 'public/build/bundle.js',
         sourceMapFilename: 'public/build/bundle.map'
 	},
-    devtool: '#source-map',
+  devtool: '#source-map',
 	plugins: process.env.NODE_ENV === 'production' ? [
-	    new webpack.DefinePlugin({
-	        'process.env': {
-	        	'NODE_ENV': JSON.stringify('production')
-	        }
-	    }),
-    	new webpack.optimize.UglifyJsPlugin({
-    		minimize: true,
-		    compress: {
-		        warnings: true
-		    }
-    	})
+    new webpack.DefinePlugin({
+        'process.env': {
+        	'NODE_ENV': JSON.stringify('production')
+        }
+    }),
+  	new webpack.optimize.UglifyJsPlugin({
+  		minimize: true,
+	    compress: {
+	        warnings: true
+	    }
+  	})
 	] : [],
 	module: {
 		loaders: [

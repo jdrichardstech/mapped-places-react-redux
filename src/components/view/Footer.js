@@ -4,8 +4,6 @@ class Footer extends Component{
   render(){
     return(
       <div id="footer-wrapper">
-
-
           <div id="footer" className="container">
             <ul className="icons">
               <li><a href="#" className="icon fa-twitter" style={{background:'#FF4E00' }} ><span className="label">Twitter</span></a></li>
@@ -16,9 +14,7 @@ class Footer extends Component{
             </ul>
             <span className="copyright">&copy;2017 JDRichardsTech. All Rights Reserved.</span>
           </div>
-
       </div>
-
     )
   }
 }

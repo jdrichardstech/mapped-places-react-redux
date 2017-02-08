@@ -7,17 +7,9 @@ class Header extends Component{
         <div className="container">
           <div className="row">
             <div className="12u">
-
-
                 <header id="header">
-
-
-                    <h1><a href="index.html" id="logo">Mapped Places</a></h1>
-                    <p>by JDRichardsTech</p>
-
-
-
-
+                  <h1><a href="index.html" id="logo">Mapped Places</a></h1>
+                  <p>by JDRichardsTech</p>
                 </header>
               </div>
             </div>

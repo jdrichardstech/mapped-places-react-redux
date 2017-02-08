@@ -4,8 +4,6 @@ import { Home } from './components/layout'
 import store from './store'
 import { Provider } from 'react-redux'
 
-
-
 const app =(
   <Provider store = {store.configureStore()}>
     <div>
@@ -13,6 +11,5 @@ const app =(
     </div>
   </Provider>
 )
-
 
 ReactDOM.render(app, document.getElementById('root'))

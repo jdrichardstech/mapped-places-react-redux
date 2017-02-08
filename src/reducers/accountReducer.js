@@ -12,9 +12,7 @@ export default (state = initialState, action) => {
 		console.log('CURRENT_USER_RECEIVED: ' + JSON.stringify(action.user))
 			updated['user'] = action.user
 			return updated
-
 		default:
 			return state
-
 	}
 }

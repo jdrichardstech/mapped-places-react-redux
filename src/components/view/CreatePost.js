@@ -39,7 +39,6 @@ class CreatePost extends Component {
 
      let updated=Object.assign({}, this.state.post)
      this.props.onCreate(updated)
-
   }
 
 
@@ -86,8 +85,8 @@ class CreatePost extends Component {
         <div>
           <img style={{marginTop:25,marginRight:30,float:'right',width:120,height:120,border:'2px solid #fff'}} src={this.state.post.image} />
         </div>
-      return(
-    <div>
+    return(
+    	<div>
         {imageDropped}
         <DropZone style={{border:'none',marginTop:0}}  onDrop={this.imageSelected.bind(this)} >
             <label style={{paddingRight:10}}>Upload an Image for your location:</label>
@@ -99,11 +98,9 @@ class CreatePost extends Component {
           </p>
 
           <button style={{ width:'30%', marginBottom:20, border:'3px solid #FF6C2B'}} className="button"  onClick={this.submitPost.bind(this)}>Submit</button>
-    </div>
+    	</div>
     )
   }
 }
-
-
 
 export default CreatePost

@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { postReducer, accountReducer } from '../reducers'
 
-var store;
+var store
 
 export default {
 
