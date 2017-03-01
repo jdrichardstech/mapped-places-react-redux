@@ -3,10 +3,7 @@ import {Register, Sidebar} from '../view'
 import { connect } from 'react-redux'
 import actions from '../../actions'
 
-
-
 class Account extends Component{
-
 
   componentDidMount(){
     this.props.checkCurrentUser()
@@ -24,22 +21,22 @@ class Account extends Component{
   }
 
   render(){
-     const currentUser= this.props.account.user
-     const content = (currentUser==null) ?
-         <div>
-           <Register onLogin={this.login.bind(this)} onRegister={this.register.bind(this)} />
-         </div>
-         :
-         <div>
-           <h1 style={{fontSize:'2em', fontFamily:'Oleo Script,cursive'}}>Welcome <span>{currentUser.username.toUpperCase()}</span></h1>
-           <p><a href="#" className="button">Logout</a></p>
-         </div>
+   const currentUser= this.props.account.user
+   const content = (currentUser==null) ?
+       <div>
+         <Register onLogin={this.login.bind(this)} onRegister={this.register.bind(this)} />
+       </div>
+       :
+       <div>
+         <h1 style={{fontSize:'2em', fontFamily:'Oleo Script,cursive'}}>Welcome <span>{currentUser.username.toUpperCase()}</span></h1>
+         <p><a href="#" className="button">Logout</a></p>
+       </div>
 
-      return(
-        <div>
-          {content}
-        </div>
-      )
+    return(
+      <div>
+        {content}
+      </div>
+    )
   }
 }
 
@@ -56,6 +53,5 @@ const dispatchToProps=(dispatch)=>{
     checkCurrentUser: ()=> dispatch(actions.checkCurrentUser())
   }
 }
-
 
 export default connect(stateToProps,dispatchToProps)(Account)
